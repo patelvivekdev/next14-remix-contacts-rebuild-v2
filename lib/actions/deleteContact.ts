@@ -1,15 +1,13 @@
 'use server';
 
+import { eq } from 'drizzle-orm';
 import { revalidateTag } from 'next/cache';
 import { redirect } from 'next/navigation';
-import { prisma } from '../../db';
+import { db } from '@/db';
+import { contactsTable } from '@/db/schema';
 
 export async function deleteContact(contactId: string) {
-  await prisma.contact.delete({
-    where: {
-      id: contactId,
-    },
-  });
+  await db.delete(contactsTable).where(eq(contactsTable.id, contactId));
 
   revalidateTag('contacts');
   redirect('/');

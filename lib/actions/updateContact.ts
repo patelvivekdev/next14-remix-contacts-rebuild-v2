@@ -1,10 +1,12 @@
 'use server';
 
+import { eq } from 'drizzle-orm';
 import { revalidateTag } from 'next/cache';
 import { redirect } from 'next/navigation';
+import { db } from '@/db';
+import { contactsTable } from '@/db/schema';
 import type { ContactSchemaErrorType, ContactSchemaType } from '@/validations/contactSchema';
 import { contactSchema } from '@/validations/contactSchema';
-import { prisma } from '../../db';
 
 type State = {
   success?: boolean;
@@ -24,12 +26,16 @@ export async function updateContact(contactId: string, _prevState: State, formDa
     };
   }
 
-  await prisma.contact.update({
-    data: result.data,
-    where: {
-      id: contactId,
-    },
-  });
+  await db
+    .update(contactsTable)
+    .set({
+      avatar: result.data.avatar,
+      first: result.data.first!,
+      last: result.data.last!,
+      notes: result.data.notes,
+      twitter: result.data.twitter,
+    })
+    .where(eq(contactsTable.id, contactId));
 
   revalidateTag('contact');
   revalidateTag('contacts');

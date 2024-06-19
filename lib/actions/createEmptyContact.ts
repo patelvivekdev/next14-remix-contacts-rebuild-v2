@@ -2,13 +2,12 @@
 
 import { revalidateTag } from 'next/cache';
 import { redirect } from 'next/navigation';
-import { prisma } from '../../db';
+import { db } from '@/db';
+import { contactsTable } from '@/db/schema';
 
 export async function createEmptyContact() {
-  const contact = await prisma.contact.create({
-    data: {},
-  });
+  const contact = await db.insert(contactsTable).values({ first: '', last: '' }).returning();
 
   revalidateTag('contacts');
-  redirect(`/contacts/${contact.id}/edit`);
+  redirect(`/contacts/${contact[0].id}/edit`);
 }

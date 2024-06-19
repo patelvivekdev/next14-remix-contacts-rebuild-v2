@@ -4,9 +4,9 @@ import { matchSorter } from 'match-sorter';
 import { useSearchParams } from 'next/navigation';
 import React from 'react';
 import ContactButton from './ContactButton';
-import type { Contact } from '@prisma/client';
+import { SelectContact } from '@/db/schema';
 
-export default function ContactList({ contacts }: { contacts: Contact[] }) {
+export default function ContactList({ contacts }: { contacts: SelectContact[] }) {
   const searchParams = useSearchParams();
   const query = searchParams.get('q') || '';
 

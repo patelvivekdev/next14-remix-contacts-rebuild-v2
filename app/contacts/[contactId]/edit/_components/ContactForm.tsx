@@ -7,9 +7,9 @@ import SubmitButton from '@/components/ui/SubmitButton';
 import TextArea from '@/components/ui/TextArea';
 import { updateContact } from '@/lib/actions/updateContact';
 import type { ContactSchemaErrorType } from '@/validations/contactSchema';
-import type { Contact } from '@prisma/client';
+import { SelectContact } from '@/db/schema';
 
-export default function ContactForm({ contact }: { contact: Contact }) {
+export default function ContactForm({ contact }: { contact: SelectContact }) {
   const updateContactById = updateContact.bind(null, contact.id);
 
   const [state, updateContactAction] = useActionState(updateContactById, {

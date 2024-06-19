@@ -4,9 +4,9 @@ import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import React, { useTransition } from 'react';
 import { cn } from '@/utils/cn';
-import type { Contact } from '@prisma/client';
+import { SelectContact } from '@/db/schema';
 
-export default function ContactButtonTransition({ contact }: { contact: Contact }) {
+export default function ContactButtonTransition({ contact }: { contact: SelectContact }) {
   const pathName = usePathname();
   const isActive = pathName.includes(`/contacts/${encodeURIComponent(contact.id)}`);
   const [isPending, startTransition] = useTransition();

@@ -3,7 +3,7 @@ import LogoFull from '../public/nextjs-13.svg';
 
 export default function RootPage() {
   return (
-    <div className="text-gray-dark m-8 flex flex-col gap-2 text-center">
+    <div className="m-8 flex flex-col gap-2 text-center text-gray-dark">
       <Image width={400} height={400} className="mb-2 block self-center" src={LogoFull} alt="logo" />
       <p>
         This is a V2 rebuild of the{' '}

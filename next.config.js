@@ -1,7 +1,14 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  experimental: {
+    ppr: true,
+  },
   images: {
-    domains: ['sessionize.com'],
+    remotePatterns: [
+      {
+        hostname: 'sessionize.com',
+      },
+    ],
   },
 };
 

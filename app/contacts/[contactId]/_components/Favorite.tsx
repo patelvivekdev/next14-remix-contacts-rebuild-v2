@@ -3,9 +3,9 @@
 import React, { useOptimistic, useTransition } from 'react';
 import { favoriteContact } from '@/lib/actions/favoriteContact';
 import { cn } from '@/utils/cn';
-import type { Contact } from '@prisma/client';
+import { SelectContact } from '@/db/schema';
 
-export default function Favorite({ contact }: { contact: Contact }) {
+export default function Favorite({ contact }: { contact: SelectContact }) {
   const favoriteContactById = favoriteContact.bind(null, contact.id, contact.favorite);
   const [optimisticFavorite, addOptimisticFavorite] = useOptimistic(contact.favorite);
   const [, startTransition] = useTransition();
