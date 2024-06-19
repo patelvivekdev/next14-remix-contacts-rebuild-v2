@@ -1,4 +1,6 @@
-# Next 14 "Remix Contacts" Rebuild V2 with Drizzle ORM and Turso DB
+# Next 15 "Remix Contacts" Rebuild with Drizzle ORM and Turso DB
+
+> This repo is from  [Aurora Scharff](https://github.com/aurorascharff/next15-remix-contacts-rebuild-v2).
 
 ## Using bun
 
@@ -26,3 +28,9 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 - [Turso](https://turso.tech/)
 
 ## Deploy on Vercel
+
+Link: https://next-contacts.patelvivekdev.vercel.app
+
+<div align="center">
+    Made with ❤️ by Vivek Patel
+</div>
