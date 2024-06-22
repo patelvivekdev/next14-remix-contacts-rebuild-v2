@@ -1,6 +1,6 @@
 # Next 15 "Remix Contacts" Rebuild with Drizzle ORM and Turso DB
 
-> This repo is from  [Aurora Scharff](https://github.com/aurorascharff/next15-remix-contacts-rebuild-v2).
+> This repo is from [Aurora Scharff](https://github.com/aurorascharff/next15-remix-contacts-rebuild-v2).
 
 ## Using bun
 

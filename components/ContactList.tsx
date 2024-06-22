@@ -3,8 +3,8 @@
 import { matchSorter } from 'match-sorter';
 import { useSearchParams } from 'next/navigation';
 import React from 'react';
+import type { SelectContact } from '@/db/schema';
 import ContactButton from './ContactButton';
-import { SelectContact } from '@/db/schema';
 
 export default function ContactList({ contacts }: { contacts: SelectContact[] }) {
   const searchParams = useSearchParams();

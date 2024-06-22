@@ -1,7 +1,7 @@
 'use server';
 
 import { eq } from 'drizzle-orm';
-import { revalidateTag } from 'next/cache';
+import {  revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
 import { db } from '@/db';
 import { contactsTable } from '@/db/schema';
@@ -37,7 +37,6 @@ export async function updateContact(contactId: string, _prevState: State, formDa
     })
     .where(eq(contactsTable.id, contactId));
 
-  revalidateTag('contact');
-  revalidateTag('contacts');
+  revalidatePath('/');
   redirect(`/contacts/${contactId}`);
 }

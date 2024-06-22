@@ -1,7 +1,7 @@
 'use server';
 
 import { eq } from 'drizzle-orm';
-import { revalidateTag } from 'next/cache';
+import { revalidateTag, revalidatePath } from 'next/cache';
 import { db } from '@/db';
 import { contactsTable } from '@/db/schema';
 
@@ -10,4 +10,5 @@ export async function favoriteContact(contactId: string, isFavorite: boolean) {
 
   revalidateTag('contact');
   revalidateTag('contacts');
+  revalidatePath('/');
 }

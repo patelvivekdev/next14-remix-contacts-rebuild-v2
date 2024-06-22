@@ -3,8 +3,8 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import React from 'react';
+import type { SelectContact } from '@/db/schema';
 import { cn } from '@/utils/cn';
-import { SelectContact } from '@/db/schema';
 
 export default function ContactButton({ contact }: { contact: SelectContact }) {
   const pathName = usePathname();

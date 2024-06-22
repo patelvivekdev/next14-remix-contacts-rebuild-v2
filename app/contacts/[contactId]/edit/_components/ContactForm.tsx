@@ -5,9 +5,9 @@ import Input from '@/components/ui/Input';
 import LinkButton from '@/components/ui/LinkButton';
 import SubmitButton from '@/components/ui/SubmitButton';
 import TextArea from '@/components/ui/TextArea';
+import type { SelectContact } from '@/db/schema';
 import { updateContact } from '@/lib/actions/updateContact';
 import type { ContactSchemaErrorType } from '@/validations/contactSchema';
-import { SelectContact } from '@/db/schema';
 
 export default function ContactForm({ contact }: { contact: SelectContact }) {
   const updateContactById = updateContact.bind(null, contact.id);

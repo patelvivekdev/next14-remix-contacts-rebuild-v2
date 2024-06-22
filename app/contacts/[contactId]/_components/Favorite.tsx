@@ -1,9 +1,9 @@
 'use client';
 
 import React, { useOptimistic, useTransition } from 'react';
+import type { SelectContact } from '@/db/schema';
 import { favoriteContact } from '@/lib/actions/favoriteContact';
 import { cn } from '@/utils/cn';
-import { SelectContact } from '@/db/schema';
 
 export default function Favorite({ contact }: { contact: SelectContact }) {
   const favoriteContactById = favoriteContact.bind(null, contact.id, contact.favorite);
